@@ -1,13 +1,13 @@
 module.exports = function (num) {
-  let fibSum; //2
-  let prev;//  1
-  let current = 1; //2
-  for(let i = 1; i <= num; i += 1) {
+  // write your code here
 
-    fibSum = prev + current
-    console.log(typeof(fibSum))
-    prev = current
-    current = fibSum
+  let fibNums = [1,1];
+  let fibSum = fibNums[fibNums.length-2] + fibNums[fibNums.length-1];
+
+  while(fibSum <= num){
+    fibNums.push(fibSum);
+    fibSum = fibNums[fibNums.length-2] + fibNums[fibNums.length-1]
   }
-  return fibSum
+
+  return fibNums.filter(fib => (fib % 2 != 0)).reduce((a, b) => a + b)
 };
